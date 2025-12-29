@@ -16,7 +16,7 @@ on:
       - main
     paths:
       - 'src/ad/**'
-      - '.github/workflows/ci-ad.yaml'
+      - '.github/workflows/ci-ad.yml'
 
 # Define the jobs to be run in the workflow
 jobs:
