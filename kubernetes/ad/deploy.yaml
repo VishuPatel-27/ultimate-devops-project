@@ -39,7 +39,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: adservice
-          image: 'imv27/devops-otel-ad:v1'
+          image: imv27/devops-otel-ad:20585356859
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # Port on which the container listens
