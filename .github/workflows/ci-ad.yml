@@ -33,12 +33,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      # Build the java application
-      - name: Build
+      - name: Execute Gradle build
         run: |
-          cd src/ad
-          chmod +x ./gradlew
-          ./gradlew installDist -PprotoSourceDir=./proto
+            cd src/ad
+            chmod +x ./gradlew
+            ./gradlew installDist
     
     # 2. Build and Push Docker Image to Docker Hub
     docker-build-and-push:
