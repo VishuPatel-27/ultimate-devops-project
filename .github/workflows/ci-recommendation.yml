@@ -48,7 +48,7 @@ jobs:
       - name: Run ruff linter
         uses: astral-sh/ruff-action@v3.5.1
         with:
-          directory: src/recommendation
+          src: src/recommendation
       
         # Auto-fix ruff issues
       - name: Auto-fix ruff issues
