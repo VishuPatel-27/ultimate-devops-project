@@ -45,18 +45,18 @@ jobs:
         # Run ruff-action to check python code quality
         # Linting helps to identify potential issues and maintain code standards
         # E.g., unused variables, formatting issues, unused imports and functions etc.
+        # This action automatically runs ruff linter on the specified source code directory after installation
       - name: Run ruff linter
         uses: astral-sh/ruff-action@v3.5.1
         with:
           src: src/recommendation
       
-        # Auto-fix ruff issues
+        # Auto-fix ruff issues and format code
       - name: Auto-fix ruff issues
-        run: ruff check --fix
-        
-        # Format the code according to ruff standards
-      - name: Format code with ruff
-        run: ruff format 
+        run: |
+          cd src/recommendation
+          ruff check --fix
+          ruff format .
     
     # 2. Build and Push Docker Image to Docker Hub
     docker-build-and-push:
