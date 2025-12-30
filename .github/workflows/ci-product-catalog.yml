@@ -16,7 +16,7 @@ on:
       - main
     paths:
       - 'src/product-catalog/**'
-      - '.github/workflows/ci-product-catalog.yaml'
+      - '.github/workflows/ci-product-catalog.yml'
 
 # Define the jobs to be run in the workflow
 jobs:
