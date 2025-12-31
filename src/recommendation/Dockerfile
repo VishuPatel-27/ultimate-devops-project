@@ -4,18 +4,28 @@ FROM python:3.12-slim-bookworm AS base
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+# Create non root user
+RUN groupadd -r appgroup && useradd -r -g appgroup appuser
+
 # Copy the requirements file into the container
 COPY requirements.txt ./
 
-# Install the required Python packages
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install deps in a virtualenv
+RUN python -m venv /venv \
+    && /venv/bin/pip install --upgrade pip \
+    && /venv/bin/pip install -r requirements.txt
 
-# Copy the rest of the application code into the container
-COPY . .
+# Add venv to PATH
+ENV PATH="/venv/bin:$PATH"
+
+# Copy app code with correct ownership
+COPY --chown=appuser:appgroup . .
 
 # Install OpenTelemetry instrumentation
-RUN opentelemetry-bootstrap -a install 
+RUN opentelemetry-bootstrap -a install
+
+# Switch to non root user
+USER appuser
 
 # Expose the port that the recommendation service will run on
 ENV RECOMMENDATION_PORT=1010

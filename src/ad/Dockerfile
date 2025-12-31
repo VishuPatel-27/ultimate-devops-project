@@ -12,23 +12,22 @@ WORKDIR /usr/src/app/
 COPY gradlew* settings.gradle* build.gradle /usr/src/app/
 COPY ./gradle ./gradle
 
+
 # Give execute permission to the Gradle wrapper and run initial Gradle tasks
 RUN chmod +x ./gradlew
+
 # 1. Download Gradle dependencies
 # 2. Download necessary repositories
 # These steps help in caching dependencies for faster builds in subsequent runs
-RUN ./gradlew
-RUN ./gradlew downloadRepos
+RUN ./gradlew && ./gradlew downloadRepos
 
 # Copy the rest of the application source code and protobuf files
 # This includes all source files needed to build the application
 COPY . .
-# This specifically copies protobuf files to a designated proto directory
-# Protobuf files are used for defining the structure of the data exchanged by the application
-COPY ./pb ./proto
-# Give execute permission to the Gradle wrapper and run initial Gradle tasks
-RUN chmod +x ./gradlew
-RUN ./gradlew installDist -PprotoSourceDir=./proto
+
+# Build the application and install it
+# The -PprotoSourceDir flag specifies the directory containing protobuf source files
+RUN ./gradlew installDist -PprotoSourceDir=./pb
 
 #####################################################
 # Deployment stage
@@ -38,8 +37,15 @@ FROM eclipse-temurin:21-jre
 # Set the working directory inside the container
 WORKDIR /usr/src/app/
 
+# Create a non-root user to run the application
+# This enhances security by avoiding running the application as the root user
+RUN groupadd -r appgroup && useradd -r -g appgroup appuser
+
 # Copy the built application from the builder stage
-COPY --from=builder /usr/src/app/ ./
+COPY --chown=appuser:appgroup --from=builder /usr/src/app/ ./
+
+# Switch to the non-root user
+USER appuser
 
 # Expose the application port
 ENV AD_PORT=9099
