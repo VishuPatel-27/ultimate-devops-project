@@ -1,6 +1,7 @@
 # CI for Product Catalog Service
 name: product-catalog-ci
 
+
 # Trigger the workflow on certain events including, 
 # 1. Pull requests to main branch
 # 2. Pushes to main branch
