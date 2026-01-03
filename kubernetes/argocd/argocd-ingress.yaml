@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend-proxy
+  name: argocd-server-ingress
+  namespace: argocd
   annotations:
     kubernetes.io/ingress.class: alb
     # Decides who can reach your app.
@@ -17,20 +18,20 @@ metadata:
 
     # Forces every HTTP request to redirect to HTTPS.
     alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
 
     # Specifies the ARN of the ACM certificate to use for HTTPS. 
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:864899854951:certificate/c68e0064-c17e-472a-ada3-9598ef6c4219
-
-    # Specifies the protocol to use when connecting to the backend service. 
-    alb.ingress.kubernetes.io/backend-protocol: HTTP 
     
-    #alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+
 spec:
   # defines which IngressClass to use,
   # in this case the AWS ALB Ingress Controller
   ingressClassName: alb
   rules:
-    - host: www.vishukumarpatel.com
+    - host: argocd.vishukumarpatel.com
       http:
         paths:
           - path: "/"
@@ -39,20 +40,7 @@ spec:
               service:
                 # name of the service to route traffic to
                 # must be in the same namespace as the Ingress
-                # for this example, the "frontendproxy" service
-                name: opentelemetry-demo-frontendproxy
+                # for this example, the "argocd-server" service
+                name: argocd-server
                 port:
-                  number: 8080
-    - host: api.vishukumarpatel.com
-      http:
-        paths:
-          - path: "/"
-            pathType: Prefix
-            backend:
-              service:
-                # name of the service to route traffic to
-                # must be in the same namespace as the Ingress
-                # for this example, the "frontendproxy" service
-                name: opentelemetry-demo-frontendproxy
-                port:
-                  number: 8080
+                  number: 443
