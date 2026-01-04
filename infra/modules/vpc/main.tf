@@ -19,7 +19,7 @@ resource "aws_subnet" "private" {
   availability_zone = var.availability_zones[count.index]   # Availability zone for each subnet
 
   tags = {
-    Name                                        = "${var.cluster_name}-private-${count.index + 1}"
+    Name                                        = "${var.cluster_name}-private-subnet-${count.index + 1}"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared" # Tag for EKS cluster integration
     "kubernetes.io/role/internal-elb"           = "1"      # Tag for internal ELB role
   }
@@ -35,7 +35,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true # Enable public IP assignment on launch
 
   tags = {
-    Name                                        = "${var.cluster_name}-public-${count.index + 1}"
+    Name                                        = "${var.cluster_name}-public-subnet-${count.index + 1}"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared" # Tag for EKS cluster integration
     "kubernetes.io/role/elb"                    = "1"      # Tag for ELB role
   }
@@ -56,7 +56,7 @@ resource "aws_eip" "nat" {
   domain = "vpc"                           # EIP domain
 
   tags = {
-    Name = "${var.cluster_name}-nat-${count.index + 1}"
+    Name = "${var.cluster_name}-nat-eip-${count.index + 1}"
   }
 }
 
@@ -84,7 +84,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "${var.cluster_name}-public"
+    Name = "${var.cluster_name}-public-rtb"
   }
 }
 
@@ -102,7 +102,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "${var.cluster_name}-private-${count.index + 1}"
+    Name = "${var.cluster_name}-private-rtb-${count.index + 1}"
   }
 }
 

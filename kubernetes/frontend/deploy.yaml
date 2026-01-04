@@ -61,6 +61,8 @@ spec:
               value: 'opentelemetry-demo-currencyservice:8080'
             - name: PRODUCT_CATALOG_SERVICE_ADDR
               value: 'opentelemetry-demo-productcatalogservice:8080'
+            - name: PRODUCT_CATALOG_ADDR
+              value: 'opentelemetry-demo-productcatalogservice:8080'
             - name: RECOMMENDATION_SERVICE_ADDR
               value: 'opentelemetry-demo-recommendationservice:8080'
             - name: SHIPPING_SERVICE_ADDR

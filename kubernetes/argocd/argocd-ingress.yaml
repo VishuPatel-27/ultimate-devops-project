@@ -18,11 +18,16 @@ metadata:
 
     # Forces every HTTP request to redirect to HTTPS.
     alb.ingress.kubernetes.io/ssl-redirect: '443'
+    # Specifies that the backend protocol is HTTPS.
+    # Argo CD is behind ALB with HTTPS, but Argo CD thinks requests are HTTP, so it keeps redirecting to HTTPS,
+    # Eventhough they already are HTTPS.
+    # Due to this annotation, ALB tells Argo CD that the requests are HTTPS.
     alb.ingress.kubernetes.io/backend-protocol: HTTPS
 
     # Specifies the ARN of the ACM certificate to use for HTTPS. 
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:864899854951:certificate/c68e0064-c17e-472a-ada3-9598ef6c4219
     
+    # Health check settings for the ALB to monitor the health of the Argo CD server.
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
 

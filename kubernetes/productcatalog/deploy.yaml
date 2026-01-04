@@ -57,6 +57,8 @@ spec:
               value: cumulative
             - name: PRODUCT_CATALOG_SERVICE_PORT
               value: "8080"
+            - name: PRODUCT_CATALOG_PORT
+              value: "8080"
             - name: FLAGD_HOST
               value: 'opentelemetry-demo-flagd'
             - name: FLAGD_PORT

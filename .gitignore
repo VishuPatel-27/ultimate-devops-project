@@ -64,3 +64,5 @@ test/tracetesting/tracetesting-vars.yaml
 # Eclude log files
 *.log
 crash.log
+
+**/iam_policy.json

@@ -674,6 +674,8 @@ spec:
               value: 'opentelemetry-demo-paymentservice:8080'
             - name: PRODUCT_CATALOG_SERVICE_ADDR
               value: 'opentelemetry-demo-productcatalogservice:8080'
+            - name: PRODUCT_CATALOG_ADDR
+              value: 'opentelemetry-demo-productcatalogservice:8080'
             - name: SHIPPING_SERVICE_ADDR
               value: 'opentelemetry-demo-shippingservice:8080'
             - name: KAFKA_SERVICE_ADDR
@@ -1066,6 +1068,8 @@ spec:
             - name: CURRENCY_SERVICE_ADDR
               value: 'opentelemetry-demo-currencyservice:8080'
             - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: 'opentelemetry-demo-productcatalogservice:8080'
+            - name: PRODUCT_CATALOG_ADDR
               value: 'opentelemetry-demo-productcatalogservice:8080'
             - name: RECOMMENDATION_SERVICE_ADDR
               value: 'opentelemetry-demo-recommendationservice:8080'
@@ -1648,6 +1652,8 @@ spec:
             - name: RECOMMENDATION_SERVICE_PORT
               value: "8080"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: 'opentelemetry-demo-productcatalogservice:8080'
+            - name: PRODUCT_CATALOG_ADDR
               value: 'opentelemetry-demo-productcatalogservice:8080'
             - name: OTEL_PYTHON_LOG_CORRELATION
               value: "true"
