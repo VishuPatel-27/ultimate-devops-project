@@ -66,7 +66,8 @@ resource "aws_iam_role_policy_attachment" "node_policy" {
     # Provides permissions for networking and VPC resources, CNI plugin is used for pod networking
     # CNI plugin enables Kubernetes pods to have the same IP address inside the pod as they do on the VPC network,
     # allowing for better network performance and integration with AWS networking features, same as VPC networking.
-    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly" # Allows nodes to pull container images from Amazon ECR
   ])
 
   # attach each policy to the node role
