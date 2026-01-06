@@ -39,7 +39,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: productcatalogservice
-          image: imv27/devops-otel-product-catalog:20607220740
+          image: imv27/devops-otel-product-catalog:20734159426
           imagePullPolicy: IfNotPresent
           ports: 
             - containerPort: 8080 # Port on which the container listens
