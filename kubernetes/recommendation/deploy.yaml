@@ -39,7 +39,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: recommendationservice
-          image: imv27/devops-otel-recommendation:20735510932
+          image: imv27/devops-otel-recommendation:20736316690
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # Port on which the container listens
