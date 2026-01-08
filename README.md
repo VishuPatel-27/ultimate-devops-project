@@ -1,7 +1,8 @@
-# OpenTelemetry Demo - End-to-End DevOps Implementation
+# Eks-Gitops-Microservices : End-to-End DevOps Implementation
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub](https://img.shields.io/badge/GitHub-VishuPatel--27-181717?logo=github)](https://github.com/VishuPatel-27)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Vishu_Patel-0A66C2?logo=linkedin)](https://linkedin.com/in/vishupatel27)
 
 > **Note**: This repository showcases a complete DevOps implementation of the [OpenTelemetry Demo Application](https://github.com/open-telemetry/opentelemetry-demo). The original application is licensed under Apache-2.0. This implementation adds production-grade CI/CD pipelines, infrastructure-as-code using Terraform, GitOps deployment with ArgoCD, and secure cloud infrastructure on AWS.
 
