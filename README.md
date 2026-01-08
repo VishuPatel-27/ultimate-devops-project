@@ -51,18 +51,15 @@ This project demonstrates a complete DevOps transformation of a microservices-ba
 
 ## 🎥 Demo Video
 
-> **Coming Soon**: Full project walkthrough and implementation demonstration
+> Full project walkthrough and implementation demonstration
 
-<!-- Once uploaded, replace with:
-[![Project Demo](video-thumbnail.png)](YOUR_YOUTUBE_LINK)
+[![Project Demo](argocd-ingress.png)](https://youtu.be/B-X_bd7yIyM)
 
 **Video Contents**:
-- Infrastructure provisioning with Terraform
 - CI/CD pipeline execution
 - GitOps deployment with ArgoCD
 - Application demonstration
 - Troubleshooting and monitoring
--->
 
 ## Technologies Used
 
