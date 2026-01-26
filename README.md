@@ -8,21 +8,21 @@
 
 ## Table of Contents
 
-- [Project Overview](#-project-overview)
-- [Architecture](#-architecture)
-- [Demo Video](#-demo-video)
-- [Technologies Used](#-technologies-used)
-- [Project Structure](#-project-structure)
-- [Infrastructure Details](#-infrastructure-details)
-- [CI/CD Pipeline](#-cicd-pipeline)
-- [Prerequisites](#-prerequisites)
-- [Getting Started](#-getting-started)
-- [Deployment Process](#-deployment-process)
-- [Challenges & Solutions](#-challenges--solutions)
-- [Cost Estimation](#-cost-estimation)
-- [Key Learnings](#-key-learnings)
-- [Acknowledgments](#-acknowledgments)
-- [License](#-license)
+- [Project Overview](#project-overview)
+- [Architecture](#architecture)
+- [Demo Video](#demo-video)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Infrastructure Details](#infrastructure-details)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Deployment Process](#deployment-process)
+- [Challenges & Solutions](#challenges--solutions)
+- [Cost Estimation](#cost-estimation)
+- [Key Learnings](#key-learnings)
+- [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ## Project Overview
 
@@ -49,7 +49,7 @@ This project demonstrates a complete DevOps transformation of a microservices-ba
 ![CI/CD Pipeline](CI-CD-Flow.png)
 *GitHub Actions workflow with GitOps deployment using ArgoCD*
 
-## 🎥 Demo Video
+## Demo Video
 
 > Full project walkthrough and implementation demonstration
 
@@ -86,7 +86,7 @@ This project demonstrates a complete DevOps transformation of a microservices-ba
 - **Code Quality**: static code analysis tools for respective languages
 - **CLI Tools**: kubectl, eksctl, AWS CLI, terraform
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
